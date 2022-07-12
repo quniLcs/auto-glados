@@ -15,7 +15,7 @@ def get_account(logger):
     cookie = os.getenv("GLADOS_COOKIE")
     token = os.getenv("PUSHPLUS_TOKEN")
     if cookie is not None and token is not None:
-        logger.info("Have obtained account information from the environmental variables.")
+        logger.info("Have obtained account information from the environment variables.")
         return cookie, token
 
     # The second way to get account: from the file
