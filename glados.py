@@ -120,8 +120,8 @@ def pushplus(token, log_path, logger):
 
 
 if __name__ == "__main__":
-    os.environ["TZ"] = "Asia/Shanghai"
-    time.tzset()
+    # os.environ["TZ"] = "Asia/Shanghai"
+    # time.tzset()
 
     log_dir = "logs/"
     if not os.path.exists(log_dir):
