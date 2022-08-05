@@ -1,4 +1,10 @@
-# Auto-GLaDOS Instruction
+# Auto-GLaDOS
+
+## Update
+
+This repo failed to work on August 4th, 2022 because of the version problem of Google Chrome, and the bug was fixed the next day. One can `fetch upstream` to update one's own repo.
+
+## Installation
 
 1. Get one's cookie by first logging in [GLaDOS](https://glados.rocks/), then opening the developer tools through any one of the following methods, reloading the page, and finally following `Network`, `console`, `Request Headers`, and `cookie`. Methods to open the developer tools:
 
