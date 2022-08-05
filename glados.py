@@ -6,6 +6,7 @@ import os
 import logging
 import json
 
+import subprocess
 import requests
 import undetected_chromedriver
 
@@ -84,7 +85,15 @@ def glados_status(driver, logger):
 
 
 def glados(cookie, logger):
-    driver = undetected_chromedriver.Chrome()
+    command = "powershell -command "
+    command += r'''"&{(Get-Item 'C:\Program Files\Google\Chrome\Application\chrome.exe').VersionInfo.ProductVersion}"'''
+
+    processor = subprocess.Popen(command, stdout = subprocess.PIPE)
+    output, error = processor.communicate()
+    output = output.decode()
+    version = output.split('.')[0]
+
+    driver = undetected_chromedriver.Chrome(version_main = version)
     driver.get("https://glados.rocks")
 
     driver.delete_all_cookies()
