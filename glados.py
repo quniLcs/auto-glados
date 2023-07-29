@@ -88,12 +88,12 @@ def glados(cookie, logger):
     command = "powershell -command "
     command += r'''"&{(Get-Item 'C:\Program Files\Google\Chrome\Application\chrome.exe').VersionInfo.ProductVersion}"'''
 
-    processor = subprocess.Popen(command, stdout = subprocess.PIPE)
-    output, error = processor.communicate()
-    output = output.decode()
-    version = output.split('.')[0]
+    # processor = subprocess.Popen(command, stdout = subprocess.PIPE)
+    # output, error = processor.communicate()
+    # output = output.decode()
+    # version = output.split('.')[0]
 
-    driver = undetected_chromedriver.Chrome(version_main = version)
+    driver = undetected_chromedriver.Chrome()  # version_main = version
     driver.get("https://glados.rocks")
 
     driver.delete_all_cookies()
