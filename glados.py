@@ -9,6 +9,7 @@ import json
 import subprocess
 import requests
 import undetected_chromedriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 def get_account(logger):
@@ -88,12 +89,13 @@ def glados(cookie, logger):
     command = "powershell -command "
     command += r'''"&{(Get-Item 'C:\Program Files\Google\Chrome\Application\chrome.exe').VersionInfo.ProductVersion}"'''
 
-    processor = subprocess.Popen(command, stdout = subprocess.PIPE)
-    output, error = processor.communicate()
-    output = output.decode()
-    version = output.split('.')[0]
+    # processor = subprocess.Popen(command, stdout = subprocess.PIPE)
+    # output, error = processor.communicate()
+    # output = output.decode()
+    # version_main = output.split('.')[0]
 
-    driver = undetected_chromedriver.Chrome(version_main = version)
+    driver_executable_path = ChromeDriverManager().install()
+    driver = undetected_chromedriver.Chrome(driver_executable_path = driver_executable_path)
     driver.get("https://glados.rocks")
 
     driver.delete_all_cookies()
@@ -114,8 +116,8 @@ def pushplus(token, log_path, logger):
     with open(log_path, 'r') as log_file:
         content = log_file.read()
 
-    data = {'channel': 'wechat', "token": token,
-            'title': 'Auto-GLaDOS Log File', "content": content}
+    data = {'channel': 'wechat', 'token': token,
+            'title': 'Auto-GLaDOS Log File', 'content': content}
 
     logger.info('')
     logger.info("Start to send message.")
