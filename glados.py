@@ -48,13 +48,13 @@ def get_account(logger):
 
 
 def glados_checkin(driver, logger):
-    url = 'https://glados.one/api/user/checkin'
+    url = 'https://glados.cloud/api/user/checkin'
     script = """
         return function(){
         var request = new XMLHttpRequest();
         request.open('POST', '%s', false);
         request.setRequestHeader('content-type', 'application/json');
-        request.send('{"token": "glados.one"}');
+        request.send('{"token": "glados.cloud"}');
         return request;
         }();
         """ % url
@@ -69,7 +69,7 @@ def glados_checkin(driver, logger):
 
 
 def glados_status(driver, logger):
-    url = "https://glados.one/api/user/status"
+    url = "https://glados.cloud/api/user/status"
     script = """
         return (function(){
         var request = new XMLHttpRequest();
@@ -96,7 +96,7 @@ def glados(cookie, logger):
 
     driver_executable_path = ChromeDriverManager().install().replace('THIRD_PARTY_NOTICES.', '')
     driver = undetected_chromedriver.Chrome(driver_executable_path = driver_executable_path)
-    driver.get("https://glados.one")
+    driver.get("https://glados.cloud")
 
     driver.delete_all_cookies()
     for piece in cookie.split('; '):
