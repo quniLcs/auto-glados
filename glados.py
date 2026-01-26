@@ -94,7 +94,7 @@ def glados(cookie, logger):
     # output = output.decode()
     # version_main = output.split('.')[0]
 
-    driver_executable_path = ChromeDriverManager().install()
+    driver_executable_path = ChromeDriverManager().install().replace('THIRD_PARTY_NOTICES.', '')
     driver = undetected_chromedriver.Chrome(driver_executable_path = driver_executable_path)
     driver.get("https://glados.rocks")
 
