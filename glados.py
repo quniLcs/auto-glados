@@ -48,7 +48,7 @@ def get_account(logger):
 
 
 def glados_checkin(driver, logger):
-    url = 'https://glados.rocks/api/user/checkin'
+    url = 'https://glados.one/api/user/checkin'
     script = """
         return function(){
         var request = new XMLHttpRequest();
@@ -69,7 +69,7 @@ def glados_checkin(driver, logger):
 
 
 def glados_status(driver, logger):
-    url = "https://glados.rocks/api/user/status"
+    url = "https://glados.one/api/user/status"
     script = """
         return (function(){
         var request = new XMLHttpRequest();
