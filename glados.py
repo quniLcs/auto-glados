@@ -102,8 +102,8 @@ def glados(cookie, logger):
     for piece in cookie.split('; '):
         name = piece[:piece.find('=')]
         value = piece[piece.find('=') + 1:]
-        if name in ["koa:sess", "koa:sess.sig"]:
-            driver.add_cookie({"name": name, "value": value})
+        # if name in ["koa:sess", "koa:sess.sig"]:
+        driver.add_cookie({"name": name, "value": value})
 
     if glados_checkin(driver, logger) != -2:
         glados_status(driver, logger)
